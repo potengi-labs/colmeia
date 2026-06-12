@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="google-adsense-account" content="ca-pub-3277175946272866">
+
+<title>Vital • Sistema de Gestão Integrada</title>
+  <meta name="description" content="Vital • Sistema de Gestão Integrada" />
+
+  <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:title" content="Vital • Sistema de Gestão Integrada" />
+  <meta property="og:description" content="Vital • Sistema de Gestão Integrada" />
+  <meta property="og:image" content="https://www.autistas.net/assets/img/img-share-vital.jpg" />
+  <meta property="og:url" content="https://www.autistas.net/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card (melhora compatibilidade geral) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vital • Sistema de Gestão Integrada" />
+  <meta name="twitter:description" content="Vital • Sistema de Gestão Integrada" />
+  <meta name="twitter:image" content="https://www.autistas.net/assets/img/img-share-vital.jpg" />
+
+  <!-- Favicons -->
+  <link href="assets/img/logo-vital.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="assets/css/vital.css">
+  <link rel="stylesheet" href="assets/css/vital-editor.css">
+  
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <!-- ======================================================= GOOGLE ADSENSE  ======================================================== -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3277175946272866"
+     crossorigin="anonymous"></script>
+
+  
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- =========================================================
+TOPBAR
+========================================================= -->
+
+            <div id="header-container"></div>
+
+  <!-- BANNER SLOT 
+    <section class="section">
+
+        <div class="section-header">
+            <h2>FOCO AGORA</h2>
+            <small>Prioridade central desta semana</small>
+        </div>
+
+        <div class="today-priority">
+            <strong>MISSÃO DA SEMANA</strong>
+            <h2>
+                Consolidar observações recentes de Guilherme e alinhar os
+                próximos marcos com a família.
+            </h2>
+        </div>
+
+    </section>
+    BANNER SLOT -->
+
+ <nav class="horizontal-menu">
+
+    <button class="menu-tab active" data-tab="painel">Painel Geral</button>
+    <button class="menu-tab" data-tab="sistema">Diário Longitudinal</button>
+    <button class="menu-tab" data-tab="projetos">Desenvolvimento</button>
+    <button class="menu-tab" data-tab="guilherme">Centro</button>
+    <button class="menu-tab" data-tab="decisoes">Decisões Compartilhadas</button>
+    <button class="menu-tab" data-tab="biblioteca">Biblioteca Viva</button>
+    <button class="menu-tab" data-tab="agenda">Agenda</button>
+    <button class="menu-tab" data-tab="memoria">Memória do Desenvolvimento</button>
+    <button class="menu-tab" data-tab="governanca">Rede de Apoio</button>
+
+</nav>
+
+<div class="layout">
+
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+
+        <!-- PAINEL GERAL -->
+
+        <section id="painel" class="tab-content active">
+
+            <div class="section">
+
+                <div class="section-header">
+                    <h2>🧒 Painel de Desenvolvimento Longitudinal</h2>
+                    <small>
+                        Acompanhamento integrado do desenvolvimento, bem-estar,
+                        rotina e aprendizagem de Angelo Victor.
+                    </small>
+                </div>
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Panorama Atual</h2>
+                        <small>
+                            Visão integrada do desenvolvimento e das necessidades
+                            atuais de Angelo Victor.
+                        </small>
+                    </div>
+
+                    <div class="grid">
+
+                        <div class="card">
+                            <small>Idade Atual</small>
+                            <strong>2 anos</strong>
+                            <p>
+                                Fase de desenvolvimento acompanhada pelo vital.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <small>Domínios Monitorados</small>
+                            <strong>12</strong>
+                            <p>
+                                Áreas acompanhadas continuamente pela família e profissionais.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <small>Objetivo</small>
+                            <strong>∞</strong>
+                            <p>
+                                Construir continuidade entre observações,
+                                aprendizados e decisões.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <small>Acompanhamento</small>
+                            <strong>Contínuo</strong>
+                            <p>
+                                Registros vivos ao longo do crescimento.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+        </section>
+
+        <section>
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>🧭 Radar de Desenvolvimento</h2>
+                        <small>
+                            Áreas prioritárias para compreender e apoiar
+                            o crescimento de Angelo Victor.
+                        </small>
+                    </div>
+
+                    <div class="continuity-map">
+
+                        <div class="map-column">
+
+                            <h3>Desenvolvimento</h3>
+
+                            <div class="map-card">
+                                <strong>Como Angelo está aprendendo</strong>
+                                Linguagem, cognição, brincadeiras,
+                                atenção compartilhada e aquisição de novas habilidades.
+                            </div>
+
+                        </div>
+
+                        <div class="map-column">
+
+                            <h3>Regulação</h3>
+
+                            <div class="map-card">
+                                <strong>Como Angelo vivencia emoções e mudanças</strong>
+                                Identificação de gatilhos, estratégias de apoio
+                                e recuperação emocional.
+                            </div>
+
+                        </div>
+
+                        <div class="map-column">
+
+                            <h3>Autonomia</h3>
+
+                            <div class="map-card">
+                                <strong>Como Angelo participa da própria rotina</strong>
+                                Alimentação, higiene, escolhas e desenvolvimento
+                                gradual da independência.
+                            </div>
+
+                        </div>
+
+                        <div class="map-column">
+
+                            <h3>Bem-Estar</h3>
+
+                            <div class="map-card">
+                                <strong>Como Angelo está vivendo seu cotidiano</strong>
+                                Sono, alimentação, saúde, conforto,
+                                participação e qualidade de vida.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <div class="section">
+
+                    <div class="card">
+
+                        <strong style="font-size:3rem;display:block;text-align:center;margin-bottom:16px;">
+                            ∞
+                        </strong>
+
+                        <small>PROPÓSITO DO vital</small>
+
+                        <h3>
+                            Acompanhar Angelo de forma integrada e contínua.
+                        </h3>
+
+                        <p>
+                            Cada observação ajuda a compreender não apenas
+                            comportamentos isolados, mas a trajetória completa
+                            do seu desenvolvimento.
+                        </p>
+
+                        <p>
+                            O objetivo é construir uma memória compartilhada entre
+                            família, profissionais, escola e demais pessoas
+                            envolvidas em seu cuidado.
+                        </p>
+
+                        <p>
+                            Ao longo do tempo, o sistema transforma registros
+                            dispersos em conhecimento útil para apoiar decisões
+                            mais conscientes e personalizadas.
+                        </p>
+
+                        <p style="margin-top:20px;font-weight:600;">
+                            Abrir acompanhamento →
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+</section>
+
+            
+            <!-- MINI-SISTEMA -->
+
+            <section id="sistema" class="tab-content">
+            
+            <div class="section">
+
+    <div class="section-header">
+        <h2>📝 Memória Operacional Longitudinal</h2>
+        <small>
+            Observações • Decisões • Aprendizados • Hipóteses • Continuidade
+        </small>
+    </div>
+
+    <div class="card editor-card">
+
+        <div class="editor-toolbar">
+
+            <div class="editor-title">
+
+                <strong>
+                    Rascunhos e Anotações 
+                </strong>
+
+                <small id="editorStatus">
+                    Pronto
+                </small>
+
+            </div>
+
+<div class="editor-actions">
+
+    <button
+        id="saveEditor"
+        class="editor-btn primary">
+        💾 Salvar Local
+    </button>
+
+    <div class="dropdown">
+
+        <button
+            id="exportMenu"
+            class="editor-btn">
+
+            📤 Exportar ▾
+
+        </button>
+
+        <div
+            class="dropdown-content"
+            id="exportDropdown">
+
+            <button id="exportEditor">
+                📦 JSON Snapshot
+            </button>
+
+            <button id="exportMD">
+                📝 Markdown
+            </button>
+
+            <button id="exportPDF">
+                📄 PDF
+            </button>
+
+            <button id="exportDOCX">
+                📘 Word
+            </button>
+
+        </div>
+
+    </div>
+
+    <button
+        id="importEditor"
+        class="editor-btn">
+        📥 Restaurar
+    </button>
+
+    <button
+        id="clearEditor"
+        class="editor-btn danger">
+        🗑 Limpar
+    </button>
+
+    <input
+        id="importFile"
+        type="file"
+        accept=".json"
+        hidden>
+
+</div>
+
+        </div>
+
+        <div id="editorjs"></div>
+
+    </div>
+
+    </div><!-- .section -->
+</section>
+    
+
+            <!-- PROJETOS -->
+
+            <section id="projetos" class="tab-content">
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Projetos Ativos</h2>
+                    </div>
+
+                    <div class="grid">
+
+                        <div class="card">
+                            <small>Projeto</small>
+                            <strong>Guilherme</strong>
+                            <p>Prioridade máxima.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Projeto</small>
+                            <strong>Sistema REDE</strong>
+                            <p>Desenvolvimento contínuo.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Projeto</small>
+                            <strong>PRISMA</strong>
+                            <p>Estruturação e validação.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Projeto</small>
+                            <strong>Vozes Atípicas</strong>
+                            <p>Produção criativa.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CENTRO GUILHERME -->
+
+            <section id="guilherme" class="tab-content">
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Centro Guilherme</h2>
+                    </div>
+
+                    <div class="grid">
+
+                        <div class="card">
+                            <small>Estado Atual</small>
+                            <p>Resumo executivo do momento atual.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Estratégias Ativas</small>
+                            <ul>
+                                <li>Previsibilidade</li>
+                                <li>Antecipação visual</li>
+                                <li>Validação emocional</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <small>Observação</small>
+                            <p>Hipóteses em acompanhamento.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Próximos Eventos</small>
+                            <p>Transições e marcos futuros.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- DECISÕES -->
+
+            <section id="decisoes" class="tab-content">
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Hub de Decisões</h2>
+                    </div>
+
+                    <div class="card">
+
+                        <small>DECISÃO RECENTE</small>
+
+                        <strong>Estratégia de antecipação</strong>
+
+                        <p>
+                            Contexto: preparação para evento futuro.
+                            <br><br>
+                            Decisão: ampliar recursos visuais.
+                            <br><br>
+                            Resultado observado: redução de ansiedade.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- BIBLIOTECA -->
+
+            <section id="biblioteca" class="tab-content">
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Biblioteca Viva</h2>
+                    </div>
+
+                    <div class="tags">
+
+                        <div class="tag">Ansiedade</div>
+                        <div class="tag">Transições</div>
+                        <div class="tag">Sobrecarga</div>
+                        <div class="tag">Hiperfoco</div>
+                        <div class="tag">Autorregulação</div>
+                        <div class="tag">Resistência</div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+<!-- =========================================================
+AGENDA
+========================================================= -->
+
+<div class="tab-content" id="agenda">
+
+<section class="section">
+
+<div class="section-header">
+
+<div>
+<h2>Agenda Integrada</h2>
+<small>Google Calendar • Continuidade temporal • Espelhamento de <a href="../rede/calendario-2026.html" target="_blank">Calendário 2026</a></small>
+</div>
+
+</div>
+
+<iframe
+src="https://calendar.google.com/calendar/embed?
+src=5180df422bc5053c05031fe4ec6e94004670473f434cb1e80c7792f117e31fc0@group.calendar.google.com&color=%23F4511E
+&src=3f9b413e7ab7a0d8ddb312ba7291173fedd7d4c6339f7a64607b28ebc97646d4@group.calendar.google.com&color=%234285F4
+&src=lojinhadosautistas%40gmail.com&color=%23188038
+&src=d66c2b625c588f936624ae4b916ef12f055ba673e2a91db8b659cc573d9da7f6@group.calendar.google.com&color=%23795548
+&ctz=America%2FFortaleza&mode=MONTH&showTitle=0&showTabs=0&showCalendars=0"
+style="border:0; width:100%; height:650px;"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</section>
+
+</div>
+
+            <!-- MEMÓRIA -->
+
+            <section id="memoria" class="tab-content">
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Memória Operacional</h2>
+                    </div>
+
+                    <div class="grid">
+
+                        <div class="card">
+                            <small>Aprendizados</small>
+                            <p>O que funcionou recentemente.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Mudanças</small>
+                            <p>Alterações observadas.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Alertas</small>
+                            <p>Pontos de atenção.</p>
+                        </div>
+
+                        <div class="card">
+                            <small>Hipóteses</small>
+                            <p>Observações em andamento.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- GOVERNANÇA -->
+
+            <section id="governanca" class="tab-content">
+
+                <div class="section">
+
+                    <div class="section-header">
+                        <h2>Governança</h2>
+                        <small>Preparado para integrações • <a href="vital-report1.html">Report 1</a>  •  <a href="vital-report2.html">Report 2</a></small>
+                    </div>
+
+                    <div class="grid">
+
+                        <div class="card" id="github-projects">
+                            <small>Projects</small>
+                            <strong>12</strong>
+                            <p>Itens ativos</p>
+                        </div>
+
+                        <div class="card" id="github-discussions">
+                            <small>Discussions</small>
+                            <strong>04</strong>
+                            <p>Decisões abertas</p>
+                        </div>
+
+                        <div class="card" id="github-actions">
+                            <small>Actions</small>
+                            <strong>✓</strong>
+                            <p>Última sincronização</p>
+                        </div>
+
+                        <div class="card" id="github-insights">
+                            <small>Insights</small>
+                            <strong>∞</strong>
+                            <p>Inteligência longitudinal</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+            <div id="footer-container"></div>
+
+</div>
+    
+<script src="assets/js/vital-components.js"></script>
+<script src="assets/js/vital.js"></script>
+<script src="assets/js/vital-editor.js"></script>
+<script src="assets/js/vital-export.js"></script>
+
+</body>
+</html>
