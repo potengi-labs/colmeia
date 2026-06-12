@@ -609,7 +609,7 @@ transition:.3s ease;
 .card:hover{
 transform:translateY(-4px);
 box-shadow:
-0 14px 34px rgba(0,183,217,.08);
+0 14px 34px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .card strong{
 display:block;
