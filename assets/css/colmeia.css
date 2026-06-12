@@ -347,17 +347,25 @@ HORIZONTAL MENU
 ========================================================= */
 
 .horizontal-menu{
+  position: relative;
+  z-index: 10;
 
-display:flex;
-gap:12px;
+  display: flex;
+  gap: 12px;
 
-overflow-x:auto;
+  overflow-x: auto;
+  padding: 6px 2px;
 
-padding:6px 2px;
+  scrollbar-width: none;
 
-scrollbar-width:none;
+  backdrop-filter: blur(14px);
 
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
+
 
 .horizontal-menu::-webkit-scrollbar{
 display:none;
