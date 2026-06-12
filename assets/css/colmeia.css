@@ -358,12 +358,7 @@ HORIZONTAL MENU
 
   scrollbar-width: none;
 
-  backdrop-filter: blur(14px);
-
-  background: color-mix(in srgb, var(--panel) 70%, transparent);
-
-  border: 1px solid var(--line);
-  border-radius: 18px;
+  backdrop-filter: blur(10px);
 }
 
 
