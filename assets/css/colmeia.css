@@ -1,29 +1,28 @@
 :root{
 
---bg:#edf3f8;
---panel:rgba(255,255,255,.78);
+--bg:#FFF8EC;              /* fundo quente, levemente mel */
+--panel:rgba(255,255,255,.72); /* vidro leve com calor */
 
---surface:#ffffff;
---surface2:#f5f9fc;
+--surface:#FFFFFF;         /* superfícies limpas */
+--surface2:#FFF3DC;        /* camadas quentes secundárias */
 
---text:#09111f;
---muted:#63758a;
+--text:#2A1A0F;            /* texto marrom profundo (colmeia) */
+--muted:#7A5A3A;           /* texto secundário quente */
 
---line:rgba(15,23,42,.06);
+--line:rgba(245,179,1,.18); /* bordas âmbar sutis */
 
---primary:#542702;
---secondary:#d6a100;
---accent:#f7e305;
-    
+--primary:#8A4B00;         /* núcleo estrutural (mel escuro) */
+--secondary:#D89B00;       /* dourado ativo (UI / links) */
+--accent:#F5B301;          /* âmbar principal (identidade Colmeia) */
 
---green:#6dff7c;
---cyan:#17c6d3;
---orange:#ffb25a;
---purple:#7c82ff;
---red:#ff687d;
+--green:#7CDA7A;           /* mantém sinal de vida */
+--cyan:#2ECAD3;            /* mantém contraste tecnológico */
+--orange:#FFB25A;
+--purple:#9A7BFF;
+--red:#FF6B6B;
 
 --shadow:
-0 20px 60px rgba(245,179,1,.10);
+0 20px 60px rgba(245,179,1,.12); /* glow âmbar suave */
 
 }
 
