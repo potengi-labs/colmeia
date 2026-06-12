@@ -1,1 +1,70 @@
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f14;
+  color: #e6edf3;
+}
+
+.topbar {
+  padding: 24px;
+  border-bottom: 1px solid #1c2430;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+#overview {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.metric {
+  background: #111826;
+  padding: 16px;
+  border-radius: 10px;
+  flex: 1;
+}
+
+#projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.card {
+  background: #111826;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #1c2430;
+}
+
+.signal {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.green { background: #3ddc97; }
+.yellow { background: #f5c542; }
+.red { background: #ff5c5c; }
+.blue { background: #4da3ff; }
+
+.progress {
+  height: 6px;
+  background: #1c2430;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4da3ff;
+}
