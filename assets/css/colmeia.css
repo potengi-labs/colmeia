@@ -391,7 +391,7 @@ transition:.3s ease;
 
 transform:translateY(-2px);
 
-border-color:rgba(0,183,217,.18);
+border-color:var(--secondary);
 
 }
 
@@ -510,7 +510,7 @@ cursor:pointer;
 
 transform:translateY(-2px);
 
-border-color:rgba(0,183,217,.18);
+border-color:var(--secondary);
 
 }
 
