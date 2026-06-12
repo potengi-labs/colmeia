@@ -28,23 +28,23 @@
 
 body.dark{
 
---bg:#06111b;
---panel:rgba(10,18,32,.78);
+--bg:#120B05;              /* fundo escuro quente (não azul frio) */
+--panel:rgba(28,18,8,.72); /* vidro âmbar escuro */
 
---surface:#0b1626;
---surface2:#101b2d;
+--surface:#1A0F08;         /* superfícies profundas */
+--surface2:#24140B;        /* variação de profundidade */
 
---text:#e7f4ff;
---muted:#8ea3b9;
+--text:#FFF3E0;            /* texto quente (não azul frio) */
+--muted:#C8A27A;           /* secundário suave mel */
 
---line:rgba(255,255,255,.05);
+--line:rgba(245,179,1,.10); /* bordas âmbar sutis */
 
---primary:#63a9ff;
---secondary:#00d5ff;
---accent:#7dff81;
+--primary:#F5B301;         /* núcleo Colmeia (âmbar vivo) */
+--secondary:#FFCC66;       /* dourado funcional */
+--accent:#FFD37A;          /* highlight quente */
 
 --shadow:
-0 20px 60px rgba(0,0,0,.45);
+0 20px 60px rgba(245,179,1,.18); /* glow âmbar noturno */
 
 }
 
