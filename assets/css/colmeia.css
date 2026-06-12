@@ -11,9 +11,10 @@
 
 --line:rgba(245,179,1,.18); /* bordas âmbar sutis */
 
---primary:#8A4B00;         /* núcleo estrutural (mel escuro) */
---secondary:#D89B00;       /* dourado ativo (UI / links) */
---accent:#F5B301;          /* âmbar principal (identidade Colmeia) */
+--primary:#463300;         /* marro escuro (núcleo estrutural) */
+--secondary:#8A4B00;       /* mel escuro (UI / links) */
+--tertiary:#D89B00;        /* dourado ativo (no use yet) */
+--accent:#F5B301;          /* âmbar alaranjado principal (identidade Colmeia) */
 
 --green:#7CDA7A;           /* mantém sinal de vida */
 --cyan:#2ECAD3;            /* mantém contraste tecnológico */
