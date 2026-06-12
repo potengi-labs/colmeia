@@ -69,7 +69,10 @@ background:
 
 radial-gradient(
 circle at top left,
+/*
 rgba(15,95,196,.12),
+    */
+rgba(245,179,1,.10),
 transparent 20%
 ),
 
