@@ -19,16 +19,14 @@ Colmeia modela projetos como uma inteligência coletiva distribuída, onde cada 
 - Base preparada para integração com APIs e GitHub data
 - Filosofia do sistema
 
-Colmeia não é apenas um dashboard.
-
-É uma infraestrutura cognitiva de projetos, onde informação, execução e evolução coexistem em um único ecossistema vivo.
+Colmeia não é apenas um dashboard - é uma infraestrutura cognitiva de projetos, onde informação, execução e evolução coexistem como um ecossistema vivo plenamente integrado e em equilíbrio.
 
 🚀 Projetos conectados:
 - Lumos: sistema de navegação cognitiva
 - Continuum: fluxo contínuo de eventos e sistemas
 - BookOS: governança editorial e estruturação de conhecimento
 
-🔮 Visão futura
+🔮 Visão futura:
 Colmeia evolui para um sistema operacional de ecossistemas de software, com:
 - integração com IA
 - visualização de rede de dependências
