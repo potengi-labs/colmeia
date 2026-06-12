@@ -1,0 +1,41 @@
+{
+  "projects": [
+    {
+      "id": "lumos",
+      "name": "Lumos",
+      "status": "active",
+      "stage": "prototype",
+      "signal": "green",
+      "description": "Sistema modular de experiência e navegação cognitiva.",
+      "progress": 0.62,
+      "modules": [
+        { "name": "navigation-core", "status": "stable" },
+        { "name": "ui-layer", "status": "active" }
+      ]
+    },
+    {
+      "id": "continuum",
+      "name": "Continuum",
+      "status": "active",
+      "stage": "development",
+      "signal": "yellow",
+      "description": "Sistema de fluxo contínuo de informação e eventos.",
+      "progress": 0.41,
+      "modules": [
+        { "name": "event-engine", "status": "active" }
+      ]
+    },
+    {
+      "id": "bookos",
+      "name": "Bookos",
+      "status": "active",
+      "stage": "design",
+      "signal": "blue",
+      "description": "Governança editorial e estruturação de conhecimento.",
+      "progress": 0.28,
+      "modules": [
+        { "name": "content-graph", "status": "design" }
+      ]
+    }
+  ]
+}
