@@ -1437,8 +1437,8 @@ width:66%;
 background:
 linear-gradient(
 90deg,
-#ffb052,
-#ff8a4c
+var(--secondary),
+var(--accent)
 );
 
 }
@@ -1450,8 +1450,8 @@ width:78%;
 background:
 linear-gradient(
 90deg,
-#ff6b81,
-#ff9b52
+var(--secondary),
+var(--accent)
 );
 
 }
@@ -1522,8 +1522,8 @@ font-weight:700;
 background:
 linear-gradient(
 135deg,
-rgba(245,179,1,.08),
-rgba(0,183,217,.08)
+color-mix(in srgb, var(--accent) 8%, transparent),
+color-mix(in srgb, var(--tertiary) 8%, transparent)
 );
 
 border:1px solid rgba(0,183,217,.08);
