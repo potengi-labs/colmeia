@@ -328,8 +328,8 @@ font-size:1.1rem;
 background:
 linear-gradient(
 135deg,
-rgba(15,95,196,.12),
-rgba(0,183,217,.12)
+color-mix(in srgb, var(--accent) 12%, transparent),
+color-mix(in srgb, var(--tertiary) 12%, transparent)
 );
 
 color:var(--primary);
