@@ -3,97 +3,155 @@
    Sistema de Integração Programática
 ========================================================= */
 
-async function loadComponent(id, url) {
+class ComponentLoader {
 
-    const container =
-        document.getElementById(id);
+    constructor() {
 
-    if (!container) {
+        this.cache = new Map();
 
-        console.warn(
-            `Container não encontrado: ${id}`
-        );
-
-        return;
     }
 
-    try {
+    async load(id, url, options = {}) {
 
-        const response =
-            await fetch(url);
+        const {
+            forceReload = false,
+            onLoaded = null
+        } = options;
 
-        if (!response.ok) {
+        const container =
+            document.getElementById(id);
 
-            throw new Error(
-                `Erro ${response.status}: ${url}`
+        if (!container) {
+
+            console.warn(
+                `[Loader] Container não encontrado: ${id}`
             );
 
+            return false;
         }
 
-        container.innerHTML =
-            await response.text();
+        try {
 
-    } catch (error) {
+            let html;
 
-        console.error(
-            `Falha ao carregar ${url}`,
-            error
+            if (
+                !forceReload &&
+                this.cache.has(url)
+            ) {
+
+                html = this.cache.get(url);
+
+            } else {
+
+                const response =
+                    await fetch(url);
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `HTTP ${response.status}`
+                    );
+
+                }
+
+                html =
+                    await response.text();
+
+                this.cache.set(url, html);
+
+            }
+
+            container.innerHTML = html;
+
+            if (typeof onLoaded === "function") {
+
+                onLoaded(container);
+
+            }
+
+            return true;
+
+        } catch (error) {
+
+            console.error(
+                `[Loader] Erro ao carregar ${url}`,
+                error
+            );
+
+            container.innerHTML = `
+                <div class="component-error">
+                    <strong>Falha ao carregar componente</strong>
+                    <small>${url}</small>
+                </div>
+            `;
+
+            return false;
+        }
+
+    }
+
+    async loadMany(components = []) {
+
+        return Promise.all(
+
+            components.map(component =>
+
+                this.load(
+                    component.id,
+                    component.url,
+                    component.options || {}
+                )
+
+            )
+
         );
 
-        container.innerHTML = `
-            <div class="component-error">
-                Erro ao carregar componente.
-            </div>
-        `;
     }
 
 }
 
-/* =========================================================
+/* ==========================================================
+   INSTÂNCIA GLOBAL
+========================================================== */
+
+const componentLoader =
+    new ComponentLoader();
+
+/* ==========================================================
    MENU MOBILE
-========================================================= */
+========================================================== */
 
 function initMenuToggle() {
 
     const menuToggle =
-        document.getElementById(
-            "menuToggle"
-        );
+        document.getElementById("menuToggle");
 
     const sidebar =
-        document.querySelector(
-            ".sidebar"
-        );
+        document.querySelector(".sidebar");
 
-    if (!menuToggle || !sidebar)
-        return;
+    if (!menuToggle || !sidebar) return;
 
-    menuToggle.onclick = (e) => {
+    menuToggle.addEventListener(
+        "click",
+        (e) => {
 
-        e.stopPropagation();
+            e.stopPropagation();
 
-        sidebar.classList.toggle(
-            "show"
-        );
+            sidebar.classList.toggle("show");
 
-    };
+        }
+    );
 
     document.addEventListener(
         "click",
         (e) => {
 
             if (
-                !sidebar.contains(
-                    e.target
-                ) &&
-                !menuToggle.contains(
-                    e.target
-                )
+                !sidebar.contains(e.target) &&
+                !menuToggle.contains(e.target)
             ) {
 
-                sidebar.classList.remove(
-                    "show"
-                );
+                sidebar.classList.remove("show");
 
             }
 
@@ -102,65 +160,120 @@ function initMenuToggle() {
 
 }
 
-/* =========================================================
-   INIT
-========================================================= */
+/* ==========================================================
+   TAB LOADER (NOVO)
+========================================================== */
+
+async function loadTab(tabName) {
+
+    const tabContainer =
+        document.getElementById("tab-container");
+
+    if (!tabContainer) return;
+
+    try {
+
+        const response =
+            await fetch(
+                `./assets/tabs/${tabName}.html`
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Tab não encontrada`
+            );
+
+        }
+
+        tabContainer.innerHTML =
+            await response.text();
+
+    } catch (error) {
+
+        console.error(error);
+
+        tabContainer.innerHTML = `
+            <div class="component-error">
+                Não foi possível carregar a aba.
+            </div>
+        `;
+
+    }
+
+}
+
+/* ==========================================================
+   MENU DE TABS
+========================================================== */
+
+function initTabs() {
+
+    const tabs =
+        document.querySelectorAll(".menu-tab");
+
+    tabs.forEach(tab => {
+
+        tab.addEventListener("click", () => {
+
+            tabs.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            tab.classList.add("active");
+
+            const tabName =
+                tab.dataset.tab;
+
+            loadTab(tabName);
+
+        });
+
+    });
+
+}
+
+/* ==========================================================
+   INICIALIZAÇÃO
+========================================================== */
 
 document.addEventListener(
     "DOMContentLoaded",
     async () => {
 
-        await Promise.all([
+        await componentLoader.loadMany([
 
-            loadComponent(
-                "header-container",
+            {
+                id: "header-container",
+                url:
                 "assets/components/colmeia-header.html"
-            ),
+            },
 
-            loadComponent(
-                "sidebar-container",
+            {
+                id: "sidebar-container",
+                url:
                 "assets/components/colmeia-sidebar.html"
-            ),
+            },
 
-            loadComponent(
-                "footer-container",
+            {
+                id: "footer-container",
+                url:
                 "assets/components/colmeia-footer.html"
-            )
+            }
 
         ]);
 
-        /* menu */
-
         initMenuToggle();
 
-        /* theme */
+        initTabs();
 
         if (
-            typeof initTheme
-            === "function"
+            document.getElementById(
+                "tab-container"
+            )
         ) {
 
-            initTheme();
-
-        }
-
-        /* futuras inicializações */
-
-        if (
-            typeof initEditor
-            === "function"
-        ) {
-
-            initEditor();
-
-        }
-
-        if (
-            typeof initCharts
-            === "function"
-        ) {
-
-            initCharts();
+            loadTab("painel");
 
         }
 
