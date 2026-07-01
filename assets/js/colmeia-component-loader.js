@@ -63,17 +63,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     loadComponent(
       "header-container",
-      "assets/components/vital-header.html"
+      "assets/components/colmeia-header.html"
     ),
 
     loadComponent(
       "sidebar-container",
-      "assets/components/vital-sidebar.html"
+      "assets/components/colmeia-sidebar.html"
     ),
     
     loadComponent( 
       "footer-container", 
-      "assets/components/vital-footer.html" 
+      "assets/components/colmeia-footer.html" 
     )
 
   ]);
