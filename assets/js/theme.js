@@ -1,20 +1,14 @@
-/* =========================================================
-   THEME.JS
-========================================================= */
-
-/* =========================================================
-   THEME.JS
-========================================================= */
-
 function initThemeToggle() {
 
-    const themeToggle = document.getElementById('themeToggle');
+    const themeToggle =
+        document.getElementById('themeToggle');
 
     if (!themeToggle) return;
 
     function updateThemeUI() {
 
-        const isDark = document.body.classList.contains('dark');
+        const isDark =
+            document.body.classList.contains('dark');
 
         themeToggle.innerHTML =
             isDark ? '☀️' : '🌙';
@@ -25,14 +19,21 @@ function initThemeToggle() {
         );
     }
 
-    if (localStorage.getItem('continuum-theme') === 'dark') {
+    if (
+        localStorage.getItem('continuum-theme')
+        === 'dark'
+    ) {
         document.body.classList.add('dark');
     }
 
     updateThemeUI();
 
     themeToggle.onclick = () => {
+
         document.body.classList.toggle('dark');
+
         updateThemeUI();
+
     };
+
 }
