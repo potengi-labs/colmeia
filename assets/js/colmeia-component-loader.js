@@ -273,7 +273,7 @@ document.addEventListener(
             )
         ) {
 
-            loadTab("agenda");
+            loadTab("painel");
 
         }
 
