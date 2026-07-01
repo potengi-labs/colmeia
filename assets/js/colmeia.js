@@ -44,18 +44,18 @@ if (themeToggle) {
         if (document.body.classList.contains('dark')) {
 
             themeToggle.innerHTML = '☀️';
-            localStorage.setItem('colmeia-theme', 'dark');
+            localStorage.setItem('continuum-theme', 'dark');
 
         } else {
 
             themeToggle.innerHTML = '🌙';
-            localStorage.setItem('colmeia-theme', 'light');
+            localStorage.setItem('continuum-theme', 'light');
 
         }
 
     });
 
-    if (localStorage.getItem('colmeia-theme') === 'dark') {
+    if (localStorage.getItem('continuum-theme') === 'dark') {
 
         document.body.classList.add('dark');
         themeToggle.innerHTML = '☀️';
