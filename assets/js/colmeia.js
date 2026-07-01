@@ -1,38 +1,46 @@
 /* =========================================================
-   CONTINUUM
-   Sistema de Integração Programática
-========================================================= */
-
-/* =========================================================
-   CONTINUUM
+   COLMEIA.JS
    Sistema de Integração Programática
 ========================================================= */
 
 /* =========================================================
    NAVEGAÇÃO ENTRE ABAS PRINCIPAIS
-========================================================= */
+========================================================= 
 
 const tabs = document.querySelectorAll('.menu-tab');
 const contents = document.querySelectorAll('.tab-content');
 
 tabs.forEach(tab => {
-
     tab.addEventListener('click', () => {
-
         tabs.forEach(t => t.classList.remove('active'));
         contents.forEach(c => c.classList.remove('active'));
-
         tab.classList.add('active');
-
         const target = document.getElementById(tab.dataset.tab);
-
         if (target) {
             target.classList.add('active');
         }
-
     });
+});*/
 
-});
+const tabs = document.querySelectorAll('.menu-tab');
+const contents = document.querySelectorAll('.tab-content');
+
+if (tabs.length) {
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            if (contents.length) {
+                contents.forEach(c => c.classList.remove('active'));
+            }
+
+            tab.classList.add('active');
+            const target = document.getElementById(tab.dataset.tab);
+            if (target) {
+                target.classList.add('active');
+            }
+        });
+    });
+}
 
 /* =========================================================
    THEME
