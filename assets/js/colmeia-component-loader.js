@@ -1,83 +1,167 @@
+/* =========================================================
+   COLMEIA COMPONENT LOADER
+========================================================= */
 
 async function loadComponent(id, url) {
-  const container = document.getElementById(id);
 
-  if (!container) {
-    console.warn(`Container não encontrado: ${id}`);
-    return;
-  }
+    const container =
+        document.getElementById(id);
 
-  try {
+    if (!container) {
 
-    const response = await fetch(url);
+        console.warn(
+            `Container não encontrado: ${id}`
+        );
 
-    if (!response.ok) {
-      throw new Error(`Erro ${response.status}: ${url}`);
+        return;
     }
 
-    container.innerHTML = await response.text();
+    try {
 
-  } catch (error) {
+        const response =
+            await fetch(url);
 
-    console.error(`Falha ao carregar ${url}`, error);
+        if (!response.ok) {
 
-    container.innerHTML = `
-      <div class="component-error">
-        Erro ao carregar componente.
-      </div>
-    `;
-  }
+            throw new Error(
+                `Erro ${response.status}: ${url}`
+            );
+
+        }
+
+        container.innerHTML =
+            await response.text();
+
+    } catch (error) {
+
+        console.error(
+            `Falha ao carregar ${url}`,
+            error
+        );
+
+        container.innerHTML = `
+            <div class="component-error">
+                Erro ao carregar componente.
+            </div>
+        `;
+    }
+
 }
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
 function initMenuToggle() {
 
-  const menuToggle = document.getElementById("menuToggle");
-  const sidebar = document.querySelector(".sidebar");
+    const menuToggle =
+        document.getElementById(
+            "menuToggle"
+        );
 
-  if (!menuToggle || !sidebar) return;
+    const sidebar =
+        document.querySelector(
+            ".sidebar"
+        );
 
-  menuToggle.addEventListener("click", (e) => {
+    if (!menuToggle || !sidebar)
+        return;
 
-    e.stopPropagation();
+    menuToggle.onclick = (e) => {
 
-    sidebar.classList.toggle("show");
+        e.stopPropagation();
 
-  });
+        sidebar.classList.toggle(
+            "show"
+        );
 
-  document.addEventListener("click", (e) => {
+    };
 
-    if (
-      !sidebar.contains(e.target) &&
-      !menuToggle.contains(e.target)
-    ) {
-      sidebar.classList.remove("show");
-    }
+    document.addEventListener(
+        "click",
+        (e) => {
 
-  });
+            if (
+                !sidebar.contains(
+                    e.target
+                ) &&
+                !menuToggle.contains(
+                    e.target
+                )
+            ) {
+
+                sidebar.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+    );
 
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+/* =========================================================
+   INIT
+========================================================= */
 
-  await Promise.all([
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
 
-    loadComponent(
-      "header-container",
-      "assets/components/colmeia-header.html"
-    ),
+        await Promise.all([
 
-    loadComponent(
-      "sidebar-container",
-      "assets/components/colmeia-sidebar.html"
-    ),
-    
-    loadComponent( 
-      "footer-container", 
-      "assets/components/colmeia-footer.html" 
-    )
+            loadComponent(
+                "header-container",
+                "assets/components/colmeia-header.html"
+            ),
 
-  ]);
+            loadComponent(
+                "sidebar-container",
+                "assets/components/colmeia-sidebar.html"
+            ),
 
-  initMenuToggle();
+            loadComponent(
+                "footer-container",
+                "assets/components/colmeia-footer.html"
+            )
 
-});
+        ]);
+
+        /* menu */
+
+        initMenuToggle();
+
+        /* theme */
+
+        if (
+            typeof initTheme
+            === "function"
+        ) {
+
+            initTheme();
+
+        }
+
+        /* futuras inicializações */
+
+        if (
+            typeof initEditor
+            === "function"
+        ) {
+
+            initEditor();
+
+        }
+
+        if (
+            typeof initCharts
+            === "function"
+        ) {
+
+            initCharts();
+
+        }
+
+    }
+);
