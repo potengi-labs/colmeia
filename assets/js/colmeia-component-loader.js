@@ -1,5 +1,6 @@
 /* =========================================================
-   COLMEIA COMPONENT LOADER
+   COLMEIA-COMPONENT-LOADER.JS
+   Sistema de Integração Programática
 ========================================================= */
 
 async function loadComponent(id, url) {
