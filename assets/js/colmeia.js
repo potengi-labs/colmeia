@@ -7,27 +7,42 @@
    NAVEGAÇÃO ENTRE ABAS PRINCIPAIS
 ========================================================= */
 
-const tabs = document.querySelectorAll('.menu-tab');
-const contents = document.querySelectorAll('.tab-content');
+function initTabs() {
 
-tabs.forEach(tab => {
+    const tabs =
+        document.querySelectorAll('.menu-tab');
 
-    tab.addEventListener('click', () => {
+    const contents =
+        document.querySelectorAll('.tab-content');
 
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
+    if (!tabs.length) return;
 
-        tab.classList.add('active');
+    tabs.forEach(tab => {
 
-        const target = document.getElementById(tab.dataset.tab);
+        tab.onclick = () => {
 
-        if (target) {
-            target.classList.add('active');
-        }
+            tabs.forEach(t =>
+                t.classList.remove('active'));
+
+            contents.forEach(c =>
+                c.classList.remove('active'));
+
+            tab.classList.add('active');
+
+            const target =
+                document.getElementById(
+                    tab.dataset.tab
+                );
+
+            if (target) {
+                target.classList.add('active');
+            }
+
+        };
 
     });
 
-});
+}
 
 /* =========================================================
    THEME
@@ -40,33 +55,35 @@ function initTheme() {
 
     if (!themeToggle) return;
 
-    if (
-        localStorage.getItem('continuum-theme')
-        === 'dark'
-    ) {
+    const dark =
+        localStorage.getItem(
+            'continuum-theme'
+        ) === 'dark';
 
+    if (dark) {
         document.body.classList.add('dark');
-        themeToggle.innerHTML = '☀️';
-
-    } else {
-
-        themeToggle.innerHTML = '🌙';
-
     }
+
+    themeToggle.innerHTML =
+        document.body.classList.contains('dark')
+            ? '☀️'
+            : '🌙';
 
     themeToggle.onclick = () => {
 
         document.body.classList.toggle('dark');
 
-        const dark =
-            document.body.classList.contains('dark');
+        const isDark =
+            document.body.classList.contains(
+                'dark'
+            );
 
         themeToggle.innerHTML =
-            dark ? '☀️' : '🌙';
+            isDark ? '☀️' : '🌙';
 
         localStorage.setItem(
             'continuum-theme',
-            dark ? 'dark' : 'light'
+            isDark ? 'dark' : 'light'
         );
 
     };
@@ -77,17 +94,41 @@ function initTheme() {
    PARTICLES
 ========================================================= */
 
-if (typeof particlesJS !== 'undefined') {
+function initParticles() {
+
+    if (typeof particlesJS === 'undefined')
+        return;
+
+    const container =
+        document.getElementById(
+            'particles-js'
+        );
+
+    if (!container) return;
 
     particlesJS('particles-js', {
 
         particles: {
 
-            number: { value: 55 },
-            color: { value: '#00b7d9' },
-            shape: { type: 'circle' },
-            opacity: { value: 0.16 },
-            size: { value: 3 },
+            number: {
+                value: 55
+            },
+
+            color: {
+                value: '#00b7d9'
+            },
+
+            shape: {
+                type: 'circle'
+            },
+
+            opacity: {
+                value: 0.16
+            },
+
+            size: {
+                value: 3
+            },
 
             move: {
                 enable: true,
@@ -104,11 +145,18 @@ if (typeof particlesJS !== 'undefined') {
    MERMAID
 ========================================================= */
 
-if (typeof mermaid !== 'undefined') {
+function initMermaid() {
 
-    mermaid.initialize({
-        startOnLoad: true
-    });
+    if (
+        typeof mermaid !==
+        'undefined'
+    ) {
+
+        mermaid.initialize({
+            startOnLoad: true
+        });
+
+    }
 
 }
 
@@ -116,9 +164,17 @@ if (typeof mermaid !== 'undefined') {
    CHART.JS
 ========================================================= */
 
-const chartCanvas = document.getElementById('continuumChart');
+function initCharts() {
 
-if (chartCanvas && typeof Chart !== 'undefined') {
+    const chartCanvas =
+        document.getElementById(
+            'continuumChart'
+        );
+
+    if (
+        !chartCanvas ||
+        typeof Chart === 'undefined'
+    ) return;
 
     new Chart(chartCanvas, {
 
@@ -139,31 +195,40 @@ if (chartCanvas && typeof Chart !== 'undefined') {
 
                 {
                     label: 'Continuidade',
-                    data: [72, 74, 61, 83, 88, 79],
+                    data: [
+                        72,74,61,83,88,79
+                    ],
                     tension: .4,
                     borderWidth: 3,
                     borderColor: '#00b7d9',
-                    backgroundColor: 'rgba(0,183,217,.12)',
+                    backgroundColor:
+                        'rgba(0,183,217,.12)',
                     fill: true
                 },
 
                 {
                     label: 'Sobrecarga',
-                    data: [58, 72, 89, 48, 42, 81],
+                    data: [
+                        58,72,89,48,42,81
+                    ],
                     tension: .4,
                     borderWidth: 3,
                     borderColor: '#ff6b81',
-                    backgroundColor: 'rgba(255,107,129,.08)',
+                    backgroundColor:
+                        'rgba(255,107,129,.08)',
                     fill: true
                 },
 
                 {
                     label: 'Conversação',
-                    data: [64, 59, 52, 78, 84, 63],
+                    data: [
+                        64,59,52,78,84,63
+                    ],
                     tension: .4,
                     borderWidth: 3,
                     borderColor: '#63d84e',
-                    backgroundColor: 'rgba(109,255,124,.08)',
+                    backgroundColor:
+                        'rgba(109,255,124,.08)',
                     fill: true
                 }
 
@@ -176,9 +241,11 @@ if (chartCanvas && typeof Chart !== 'undefined') {
             responsive: true,
 
             plugins: {
+
                 legend: {
                     display: false
                 }
+
             }
 
         }
@@ -191,61 +258,87 @@ if (chartCanvas && typeof Chart !== 'undefined') {
    CLÍNICA INTEGRADA
 ========================================================= */
 
-const clinicalLinks = document.querySelectorAll('.clinical-link');
-const clinicPanels = document.querySelectorAll('.clinic-panel');
+function initClinica() {
 
-clinicalLinks.forEach(link => {
+    const tabs =
+        document.querySelectorAll(
+            '.menu-tab'
+        );
 
-    link.addEventListener('click', () => {
+    const contents =
+        document.querySelectorAll(
+            '.tab-content'
+        );
 
-        clinicalLinks.forEach(l => {
-            l.classList.remove('active');
-        });
+    const clinicalLinks =
+        document.querySelectorAll(
+            '.clinical-link'
+        );
 
-        clinicPanels.forEach(panel => {
-            panel.classList.remove('active-clinic');
-        });
+    const clinicPanels =
+        document.querySelectorAll(
+            '.clinic-panel'
+        );
 
-        link.classList.add('active');
+    if (!clinicalLinks.length)
+        return;
 
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
+    clinicalLinks.forEach(link => {
 
-        const clinicaTab = document.getElementById('clinica');
+        link.onclick = () => {
 
-        if (clinicaTab) {
-            clinicaTab.classList.add('active');
-        }
+            clinicalLinks.forEach(
+                l => l.classList.remove(
+                    'active'
+                )
+            );
 
-        const target = link.dataset.clinic;
+            clinicPanels.forEach(
+                p => p.classList.remove(
+                    'active-clinic'
+                )
+            );
 
-        const panel = document.getElementById(`${target}-panel`);
+            link.classList.add(
+                'active'
+            );
 
-        if (panel) {
-            panel.classList.add('active-clinic');
-        }
+            tabs.forEach(
+                t => t.classList.remove(
+                    'active'
+                )
+            );
 
-        const anchor = link.dataset.anchor;
+            contents.forEach(
+                c => c.classList.remove(
+                    'active'
+                )
+            );
 
-        if (anchor) {
+            const clinicaTab =
+                document.getElementById(
+                    'clinica'
+                );
 
-            setTimeout(() => {
+            if (clinicaTab) {
+                clinicaTab.classList.add(
+                    'active'
+                );
+            }
 
-                const element = document.getElementById(anchor);
+            const panel =
+                document.getElementById(
+                    `${link.dataset.clinic}-panel`
+                );
 
-                if (element) {
+            if (panel) {
+                panel.classList.add(
+                    'active-clinic'
+                );
+            }
 
-                    element.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
-                }
-
-            }, 120);
-
-        }
+        };
 
     });
 
-});
+}
