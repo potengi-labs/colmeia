@@ -33,34 +33,43 @@ tabs.forEach(tab => {
    THEME
 ========================================================= */
 
-const themeToggle = document.getElementById('themeToggle');
+function initTheme() {
 
-if (themeToggle) {
+    const themeToggle =
+        document.getElementById('themeToggle');
 
-    themeToggle.addEventListener('click', () => {
+    if (!themeToggle) return;
 
-        document.body.classList.toggle('dark');
-
-        if (document.body.classList.contains('dark')) {
-
-            themeToggle.innerHTML = '☀️';
-            localStorage.setItem('continuum-theme', 'dark');
-
-        } else {
-
-            themeToggle.innerHTML = '🌙';
-            localStorage.setItem('continuum-theme', 'light');
-
-        }
-
-    });
-
-    if (localStorage.getItem('continuum-theme') === 'dark') {
+    if (
+        localStorage.getItem('continuum-theme')
+        === 'dark'
+    ) {
 
         document.body.classList.add('dark');
         themeToggle.innerHTML = '☀️';
 
+    } else {
+
+        themeToggle.innerHTML = '🌙';
+
     }
+
+    themeToggle.onclick = () => {
+
+        document.body.classList.toggle('dark');
+
+        const dark =
+            document.body.classList.contains('dark');
+
+        themeToggle.innerHTML =
+            dark ? '☀️' : '🌙';
+
+        localStorage.setItem(
+            'continuum-theme',
+            dark ? 'dark' : 'light'
+        );
+
+    };
 
 }
 
