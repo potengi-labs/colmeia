@@ -32,19 +32,13 @@ function initThemeToggle() {
 
     updateThemeUI();
 
-    // evita listeners duplicados
-    themeToggle.replaceWith(themeToggle.cloneNode(true));
+themeToggle.onclick = () => {
 
-    const freshButton =
-        document.getElementById('themeToggle');
+    document.body.classList.toggle('dark');
 
-    freshButton.addEventListener('click', () => {
+    updateThemeUI();
 
-        document.body.classList.toggle('dark');
-
-        updateThemeUI();
-
-    });
+};
 
 }
 
