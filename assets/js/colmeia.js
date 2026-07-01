@@ -31,8 +31,7 @@ tabs.forEach(tab => {
 
 /* =========================================================
    THEME
-
-
+========================================================= */
 
 const themeToggle = document.getElementById('themeToggle');
 
@@ -45,18 +44,18 @@ if (themeToggle) {
         if (document.body.classList.contains('dark')) {
 
             themeToggle.innerHTML = '☀️';
-            localStorage.setItem('continuum-theme', 'dark');
+            localStorage.setItem('colmeia-theme', 'dark');
 
         } else {
 
             themeToggle.innerHTML = '🌙';
-            localStorage.setItem('continuum-theme', 'light');
+            localStorage.setItem('colmeia-theme', 'light');
 
         }
 
     });
 
-    if (localStorage.getItem('continuum-theme') === 'dark') {
+    if (localStorage.getItem('colmeia-theme') === 'dark') {
 
         document.body.classList.add('dark');
         themeToggle.innerHTML = '☀️';
@@ -64,7 +63,6 @@ if (themeToggle) {
     }
 
 }
-========================================================= */
 
 /* =========================================================
    PARTICLES
